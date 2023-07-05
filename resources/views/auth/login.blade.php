@@ -99,44 +99,7 @@
 										<p class="mb-0">Please log in to your account</p>
 									</div>
 									<div class="form-body">
-										<!-- <form class="row g-3" method="POST" action="{{ route('login.custom') }}">
-											<div class="col-12">
-												<label for="inputEmailAddress" class="form-label">Email</label>
-												<input type="email" class="form-control" placeholder="Email" id="admin_email" class="form-control" name="admin_email" required autofocus>
-                                                    @if ($errors->has('email'))
-                                                    <span class="text-danger">{{ $errors->first('email') }}</span>
-                                                    @endif
-											</div>
-											<div class="col-12">
-												<label for="inputChoosePassword" class="form-label">Password</label>
-												<div class="input-group" id="show_hide_password">
-													<input type="password" class="form-control border-end-0" id="admin_password"  name="admin_password" required  placeholder="Enter Password"> <a href="javascript:;" class="input-group-text bg-transparent"><i class="bx bx-hide"></i></a>
-                                                        @if ($errors->has('password'))
-                                                        <span class="text-danger">{{ $errors->first('password') }}</span>
-                                                        @endif
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-check form-switch">
-													<input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
-													<label class="form-check-label" for="flexSwitchCheckChecked">Remember Me</label>
-												</div>
-											</div>
-											<div class="col-md-6 text-end">	<a href="authentication-forgot-password.html">Forgot Password ?</a>
-											</div>
-											<div class="col-12">
-												<div class="d-grid">
-													<button type="submit" class="btn btn-primary">Sign in</button>
-												</div>
-											</div>
-											<div class="col-12">
-												<div class="text-center ">
-													<p class="mb-0">Don't have an account yet?  <a class="nav-link" href="{{ route('register-user') }}">Sign up here</a>
-                                                   
-													</p>
-												</div>
-											</div>
-										</form> -->
+										
                                         <form class="row g-3" method="POST" action="{{ route('login.custom') }}">
                                             @csrf
                                             <div class="form-group mb-3">

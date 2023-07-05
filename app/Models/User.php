@@ -11,6 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    protected $primaryKey = 'userId';//user for different field
 
     /**
      * The attributes that are mass assignable.
@@ -42,4 +43,25 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'admin_password' => 'hashed',
     ];
+  
+    protected $table='user';
+    // for particular table fetch[imp]
+    public $timestamps = false;
+
+    public function city(){
+        return $this->hasOne(City::class,'id','city_id');
+        
+    }
+    public function state(){
+        return $this->hasOne(State::class,'id','state_id');
+        
+    }
+    public function country(){
+        return $this->hasOne(Country::class,'country_id','country');
+        
+    }
+    public function company(){
+        return $this->hasOne(Country::class,'id','company_detail_id');
+        
+    }
 }
