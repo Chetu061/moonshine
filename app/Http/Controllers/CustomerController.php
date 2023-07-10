@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Addresstype;
+use App\Models\Bank;
 use App\Models\City;
+use App\Models\Company;
 use App\Models\Country;
 use App\Models\Customer;
 use App\Models\State;
@@ -16,7 +19,12 @@ class CustomerController extends Controller
         $state = State::get();
         $country = Country::get();
         $user = User::get();
-        return view('customerview',compact('city','state','country','user'));
+        $company = Company::get();
+        $bank=Bank::get();
+        $address=Addresstype::get();
+        // dd($user);
+        return view('customerview',compact('city','state','country','user','company','bank','address'));
+        
     }
     public function store(Request $request)
 {
@@ -24,9 +32,10 @@ class CustomerController extends Controller
     // $data=User::all();
     // dd($data);
     $cust=new  Customer();
-    $cust->customer_id=$request->customer_id;
-    $cust->user_id=$request->user_id;
-    $cust->company_detail_id=$request->company_detail_id;
+    // $cust->customer_id=$request->customer_id;
+    // $cust->user_id=$request->user_id;
+   
+    // $cust->company_detail_id=$request->company_detail_id;
     $cust->bank_id=$request->bank_id;
     $cust->group_cos=$request->group_cos;
     $cust->address1=$request->address1;

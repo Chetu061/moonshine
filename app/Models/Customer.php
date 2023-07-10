@@ -22,7 +22,7 @@ class Customer extends Model
         
     }
     public function user(){
-        return $this->hasOne(User::class,'user_id','userId');
+        return $this->hasOne(User::class,'userId','user_id');
         
     }
 }

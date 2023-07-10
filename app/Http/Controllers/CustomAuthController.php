@@ -23,6 +23,9 @@ class CustomAuthController extends Controller
         // ]);
   
         $credentials = $request->only('admin_email', 'admin_password');
+//for password encryption
+// $user->password =Hash::make($request->password);
+
         // $credentials['admin_password'] = sha1($credentials['admin_password']);
         // dd($credentials);
         if (Auth::attempt($credentials)) {

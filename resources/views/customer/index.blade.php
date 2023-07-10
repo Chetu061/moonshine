@@ -24,9 +24,9 @@
     <thead>
       <tr>
         <th style="width:5px">ID</th>
-        <th style="width:10px">Customer_id</th>
-        <th style="width:15px">User_id</th>
-        <th style="width:10px">Company_detail_id</th>
+        {{-- <th style="width:10px">Customer_id</th> --}}
+        {{-- <th style="width:15px">User_id</th> --}}
+        {{-- <th style="width:10px">Company_detail_id</th> --}}
         <th style="width:10px">Bank_id</th>
         <th style="width:15px">Group_cos</th>
         <th style="width:10px">Address1</th>
@@ -53,13 +53,9 @@
     </thead>
     <tbody>
        @foreach($cust as $d)
+       {{-- @dd($cust) --}}
          <tr>
-          
-          {{-- <td>{{$d->customer_id}}</td> --}}
-          <?php $data = \App\Models\User::where('user_id',$d->user)->first();
-          ?>
-          <td>{{@$data->userId}}</td>
-         <td>{{$d->company_detail_id}}</td>
+       
          <td>{{$d->bank_id}}</td>
          <td>{{$d->group_cos}}</td>
         <td>{{$d->address1}}</td>

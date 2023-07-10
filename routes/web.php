@@ -32,8 +32,8 @@ Route::get('setting', [AdminController::class, 'AdminSetting'])->name('setting')
 Route::get('user',[UserController::class,'user'])->name('user');
 Route::post('user/store',[UserController::class,'store'])->name('user.store');
 Route::get('user/index',[UserController::class,'index'])->name('user.index');
-Route::get('user/edit/{userId}',[UserController::class,'edit'])->name('user.edit');
-Route::post('user/update/{userId}',[UserController::class,'update'])->name('user.update');
+Route::get('edit/{userId}',[UserController::class,'edit'])->name('edit');
+Route::put('update',[UserController::class,'update']);
 Route::get('user/delete/{userId}',[UserController::class,'delete'])->name('user.delete');
 
 
@@ -49,3 +49,6 @@ Route::get('customer/index',[CustomerController::class,'index'])->name('customer
 
 
 Route::get('supplierview',[SupplierController::class,'supplierview'])->name('supplierview');
+
+
+

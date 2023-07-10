@@ -61,14 +61,23 @@
 	<link rel="stylesheet" href="{{asset('assets/css/dark-theme.css')}}" />
 	<link rel="stylesheet" href="{{asset('assets/css/semi-dark.css')}}" />
 	<link rel="stylesheet" href="{{asset('assets/css/header-colors.css')}}" />
-    <link rel="stylesheet" href="{{asset('https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N')}}" crossorigin="anonymous">
+
 	<link rel="stylesheet" type="text/css" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css')}}" >
-    <!--datatable link-->
-   <link rel="stylesheet" href="{{asset('//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css')}}">
-	<title>Rocker - Bootstrap 5 Admin Dashboard Template</title>
+    {{-- <!--datatable link-->
+   <link rel="stylesheet" href="{{asset('//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css')}}"> --}}
+   <title>Rocker - Bootstrap 5 Admin Dashboard Template</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+   {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>  --}}
+ 
 </head>
 
 <body>
+
+	{{-- <input type="hidden" value="{{url('/')}}" id="url" name="url">
+	<input type="hidden" class="laravel_csrf_tokn" value="{{ csrf_token() }}" /> --}}
+
 	<!--wrapper-->
 	<div class="wrapper">
 	 <!--start header wrapper-->	
@@ -1044,12 +1053,12 @@
     <script src="{{asset('assets/js/index.js')}}"></script>
     <!--app JS-->
     <script src="{{asset('assets/js/app.js')}}"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> --}}
     
-    
+
+
     <script type="text/javascript" src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js')}}"></script>
-	<script src="{{asset('https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js')}}" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	<script src="{{asset('https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js')}}" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-	<script src="{{asset('https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js')}}" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+	
 <script>
  @if(Session::has('message'))
  var type = "{{ Session::get('alert-type','info') }}"
@@ -1072,6 +1081,7 @@
  }
  @endif 
 </script>
+@yield('scripts')
     </body>
     
     </html>

@@ -64,4 +64,12 @@ class User extends Authenticatable
         return $this->hasOne(Country::class,'id','company_detail_id');
         
     }
+    public function bank(){
+        return $this->hasOne(Bank::class,'id','bank_id');
+        
+    }
+    public function address(){
+        return $this->hasOne(Addresstype::class,'id','address_id');
+        
+    }
 }

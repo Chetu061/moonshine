@@ -8,7 +8,7 @@ use App\Models\City;
 use App\Models\Company;
 use App\Models\Country;
 use App\Models\State;
-
+use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
 public function user()
@@ -56,8 +56,8 @@ public function store(Request $request)
     $user->firstName=$request->firstName;
     $user->lastName=$request->lastName;
     $user->userEmail=$request->userEmail;
-    $user->userPassword=$request->userPassword;
-    $user->status=$request->status;
+    $user->userPassword=Hash::make($request->userPassword);
+   $user->status=$request->status;
     $user->otp=$request->otp;
     $user->entryTime=$request->entryTime;
     $user->payroll=$request->payroll;
@@ -65,44 +65,52 @@ public function store(Request $request)
     $user->state=$request->state;
     $user->country=$request->country;
     $user->pinCode=$request->pinCode;
-    $user->save();
+     $user->save();
+    return["msg"=>"data insert"];
+    // dd($user);
     $notification=array(
         'message'=>' Data successfully Stored',
         'alert-type'=>'success'
     );
   
-    return redirect()->route('user')->with($notification);
+    return redirect()->back()->with($notification);
 
 }
 public function index()
 {  
+
+    
+    $data = User::all();
+    return response()->json($data);
     // $user=User::all();
-    $company = Company::get();
-    $user = User::with('country')->orderBy('createdAt', 'desc')->get();//for country relation[doubt]
+    // $company = Company::get();
+    // $user = User::with('country')->orderBy('createdAt', 'desc')->get();//for country relation[doubt]
    
     // dd($user);
-    return view('user',compact('user','company'));
+    
+    // return view('user',compact('user','company'));
 }
 public function edit($userId)
-{   
-    $city = City::get();
-    $state = State::get();
-    $country = Country::get();
-    $company = Company::get();
-    // dd($userId);
-    $user=User::where('userId',$userId)->first();//when column name different
-    
-    return view('user.edit',compact('user','city','state','country','company'));
+{
+  
+   $data=User::find($userId);
+//    dd($data);
+   return response()->json([
+    'status'=>200,
+    'student'=>$data
+   ]);
+   
 }
 
 
 
-public function update(Request $request,$userId)
+public function update(Request $request)
 {
-    
+    // dd($request->all());
 
     $request->validate(
-        $rules=  ['companyId'=>'required',
+        $rules=  [
+            // 'companyId'=>'required',
           'firstName'=>'required',
           'lastName'=>'required',
           'userEmail'=>'required',
@@ -125,7 +133,8 @@ public function update(Request $request,$userId)
           
           $validatedData = $request->validate($rules, $messages);
     //  dd($userId);
-    $user=User::where('userId',$userId)->first();
+    $stud_id=$request->input('stud_id');
+    $user=User::find($stud_id);
     // dd($user);
     $user->companyId=$request->companyId;
     $user->firstName=$request->firstName;
@@ -142,12 +151,12 @@ public function update(Request $request,$userId)
     $user->pinCode=$request->pinCode;
     // dd($user);
 
-    $user->save();
+    $user->update();
     $notification=array(
         'message'=>'Data Updated successfully ',
         'alert-type'=>'success'
     );
-    return redirect()->route('user')->with($notification);
+    return redirect()->back()->with($notification);
 }
 
 public function delete($userId)

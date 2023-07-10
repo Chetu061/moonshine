@@ -11,7 +11,7 @@
 <center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   CustomerView
   </button> </center>
-<!-- Modal -->
+<!--create Modal start -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -24,29 +24,27 @@
       <div class="modal-body">
         <form id="quickForm" action="  {{route('customer.store')}} " method="post">
           @csrf
-
-
-
-            <div class="card-body">
-                
-              <div class="form-group">
+             {{-- <div class="card-body">
+                 <div class="form-group">
                 <label for="exampleFormControlSelect1">Choose customer_id</label>
                 <select class="form-control" id="exampleFormControlSelect1" name="customer_id" 
                 value="{{old('customer_id')}}">
                      {{-- @foreach($user as $pro)
                   <option value="{{$pro->id}}">{{$pro->name}}</option>
-                    @endforeach  --}}
+                    @endforeach  
                 </select>
               </div>
-            </div>
-            <br><br>
+            </div> --}}
+            {{-- <br><br> --}}
             <div class="card-body">
             <div class="form-group">
               <label for="exampleFormControlSelect1">Choose user_id</label>
               <select class="form-control" id="exampleFormControlSelect1" name="user_id" 
-              value="{{old('user_id')}}">
+              value="{{old('user_id')}}" id="user_id">
+            
                    @foreach($user as $d)
-                <option value="{{$d->id}}">{{$d->user_id}}</option>
+                  
+                <option value="{{$d->userId}}">{{$d->userId}}</option>
                   @endforeach 
               </select>
             </div>
@@ -57,9 +55,9 @@
               <label for="exampleFormControlSelect1">Choose company_detail_id</label>
               <select class="form-control" id="exampleFormControlSelect1" name="company_detail_id" 
               value="{{old('company_detail_id')}}">
-                   {{-- @foreach($user as $pro)
-                <option value="{{$pro->id}}">{{$pro->name}}</option>
-                  @endforeach  --}}
+                   @foreach($company as $d)
+                <option value="{{$d->company_detail_id }}">{{$d->company_detail_id }}</option>
+                  @endforeach 
               </select>
             </div>
           </div>
@@ -69,9 +67,9 @@
               <label for="exampleFormControlSelect1">Choose bank_id</label>
               <select class="form-control" id="exampleFormControlSelect1" name="bank_id" 
               value="{{old('bank_id')}}">
-                   {{-- @foreach($user as $pro)
-                <option value="{{$pro->id}}">{{$pro->name}}</option>
-                  @endforeach  --}}
+                   @foreach($bank as $d)
+                <option value="{{$d->bank_id}}">{{$d->bank_id}}</option>
+                  @endforeach 
               </select>
             </div>
           </div>
@@ -168,9 +166,9 @@
                 <label for="exampleFormControlSelect1">Choose	address_type</label>
                 <select class="form-control" id="exampleFormControlSelect1" name="address_type" 
                 value="{{old('address_type')}}">
-                     {{-- @foreach($user as $pro)
-                  <option value="{{$pro->id}}">{{$pro->name}}</option>
-                    @endforeach  --}}
+                     @foreach($address as $d)
+                  <option value="{{$d->address_id}}">{{$d->address_name}}</option>
+                    @endforeach 
                 </select>
               </div>
             </div>
@@ -277,5 +275,5 @@
     </div>
   </div>
 </div>
-
+{{-- end create model --}}
 @endsection
