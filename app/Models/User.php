@@ -49,11 +49,11 @@ class User extends Authenticatable
     public $timestamps = false;
 
     public function city(){
-        return $this->hasOne(City::class,'id','city_id');
+        return $this->hasOne(City::class,'city_id','city');
         
     }
     public function state(){
-        return $this->hasOne(State::class,'id','state_id');
+        return $this->hasOne(State::class,'state_id','state');
         
     }
     public function country(){

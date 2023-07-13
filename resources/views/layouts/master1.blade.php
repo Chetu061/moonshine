@@ -70,9 +70,17 @@
    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
    {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>  --}}
- 
+ {{-- valiadation script  --}}
+   <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.js"></script>
+   <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.js"></script>  
+   <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
-
+<style>
+	.error{
+	  color:red;
+	  border-color: red;
+	}
+	</style>
 <body>
 
 	{{-- <input type="hidden" value="{{url('/')}}" id="url" name="url">
@@ -91,7 +99,7 @@
 							<img src="{{asset('assets/images/logo-icon.png')}}" class="logo-icon" alt="logo icon">
 						</div>
 						<div class="">
-							<h4 class="logo-text">Rocker</h4>
+							<h4 class="logo-text">MoonShine</h4>
 						</div>
 					</div>
 					<div class="mobile-toggle-menu d-block d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><i class='bx bx-menu'></i></div>
@@ -1044,7 +1052,7 @@
     <!-- Bootstrap JS -->
     <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
     <!--plugins-->
-    <script src="{{asset('assets/js/jquery.min.js')}}"></script>
+    {{-- <script src="{{asset('assets/js/jquery.min.js')}}"></script> --}}
     <script src="{{asset('assets/plugins/simplebar/js/simplebar.min.js')}}"></script>
     <script src="{{asset('assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js')}}"></script>
     <script src="{{asset('assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js')}}"></script>

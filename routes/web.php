@@ -16,6 +16,9 @@ use App\Http\Controllers\UserController;
 Route::get('popup', function () {
     return view('popup');
 });
+Route::get('form', function () {
+    return view('form');
+});
 Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard'); 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
@@ -33,8 +36,8 @@ Route::get('user',[UserController::class,'user'])->name('user');
 Route::post('user/store',[UserController::class,'store'])->name('user.store');
 Route::get('user/index',[UserController::class,'index'])->name('user.index');
 Route::get('edit/{userId}',[UserController::class,'edit'])->name('edit');
-Route::put('update',[UserController::class,'update']);
-Route::get('user/delete/{userId}',[UserController::class,'delete'])->name('user.delete');
+Route::put('update/{userId}',[UserController::class,'update'])->name('update');
+Route::delete('user/delete/{userId}',[UserController::class,'delete'])->name('user.delete');
 
 
 
